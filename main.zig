@@ -8,7 +8,6 @@ const gl=@cImport({
 });
 
 pub fn main() !void {
-    std.debug.print("{any}", .{gl.ABM_NEW});
     if (glfw.glfwInit() == 0) {
         std.debug.print("GLFW 初始化失败", .{});
         return;

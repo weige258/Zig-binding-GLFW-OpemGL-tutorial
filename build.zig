@@ -10,6 +10,8 @@ pub fn build(b:*std.Build) void{
         .target = target,
         .optimize = optimize,
     });
+    // set subsystem to windows means del the console
+    exe.subsystem=.Windows;
     //link glfw include path and lib path
     exe.addIncludePath(b.path("./include/"));
     exe.addLibraryPath(b.path("./lib-static-ucrt/"));
