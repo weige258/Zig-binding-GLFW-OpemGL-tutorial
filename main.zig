@@ -3,8 +3,12 @@ const glfw=@cImport({
     @cInclude("GLFW/glfw3.h");
     @cInclude("GLFW/glfw3native.h");
 });
+const gl=@cImport({
+    @cInclude("GL/gl.h");
+});
 
 pub fn main() !void {
+    std.debug.print("{any}", .{gl.ABM_NEW});
     if (glfw.glfwInit() == 0) {
         std.debug.print("GLFW 初始化失败", .{});
         return;
@@ -21,7 +25,6 @@ pub fn main() !void {
 
     while (glfw.glfwWindowShouldClose(window) == 0) {
         // 渲染代码
-        std.debug.print("渲染代码", .{});
         glfw.glfwSwapBuffers(window);
         glfw.glfwPollEvents();
     }
